@@ -1,0 +1,74 @@
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+.navbar-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--secondary-color);
+    padding-top: 80px;
+    transition: right 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 1000;
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+}
+
+.navbar-menu.open {
+    right: 0;
+}
+
+.navbar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-menu ul li {
+    padding: 15px 30px;
+    text-align: left;
+}
+
+.navbar-menu ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu ul li a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    cursor: pointer;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}

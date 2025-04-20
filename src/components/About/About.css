@@ -1,0 +1,34 @@
+.about-section {
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.about-photo {
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary-color);
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .about-photo {
+        margin-bottom: 1.5rem;
+        max-width: 200px;
+    }
+}
