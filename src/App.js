@@ -11,25 +11,39 @@ import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
 function App() {
     return (
         <>
-            {" "}
             <Navbar />
             {/* Переключение темы в доработке... */}
             {/* <ThemeToggle /> */}
             <main>
                 {" "}
                 {/* Обертка для основного контента */}
-                <Hero />
-                <About />
-                <Skills />
-                <Services />
-                <Portfolio />
-                <Contact />
+                <ScrollReveal>
+                    <Hero />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <About />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <Skills />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <Services />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <Portfolio />
+                </ScrollReveal>
+                <ScrollReveal>
+                    <Contact />
+                </ScrollReveal>
             </main>
-            <Footer />
+            <ScrollReveal>
+                <Footer />
+            </ScrollReveal>
         </>
     );
 }

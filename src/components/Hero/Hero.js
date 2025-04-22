@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { FaReact } from "react-icons/fa"; // Импортируем иконку
+import { FaReact } from "react-icons/fa";
 import "./Hero.css";
 
 const Hero = () => {
