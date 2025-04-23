@@ -13,15 +13,15 @@ import Footer from "./components/Footer/Footer";
 import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
-function App() {
+import PrivacyPolicyPage from "./components/PrivacyPolicyPage/PrivacyPolicyPage";
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+function MainPage() {
     return (
         <>
-            <Navbar />
-            {/* Переключение темы в доработке... */}
             {/* <ThemeToggle /> */}
             <main>
-                {" "}
-                {/* Обертка для основного контента */}
                 <ScrollReveal>
                     <Hero />
                 </ScrollReveal>
@@ -41,10 +41,34 @@ function App() {
                     <Contact />
                 </ScrollReveal>
             </main>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <BrowserRouter>
+            <Navbar />
+
+            <Routes>
+                <Route
+                    path="/privacy-policy"
+                    element={
+                        <ScrollReveal>
+                            <PrivacyPolicyPage />
+                        </ScrollReveal>
+                    }
+                />
+
+                <Route path="/" element={<MainPage />} />
+
+                {/* <Route path="*" element={<NotFoundPage />} /> */}
+            </Routes>
+
             <ScrollReveal>
                 <Footer />
             </ScrollReveal>
-        </>
+        </BrowserRouter>
     );
 }
 

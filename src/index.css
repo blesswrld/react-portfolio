@@ -72,10 +72,6 @@ section {
     border-bottom: 1px solid #333;
 }
 
-[data-theme="light"] section {
-    border-bottom: 1px solid #d1d1d1;
-}
-
 section:last-of-type {
     border-bottom: none;
 }

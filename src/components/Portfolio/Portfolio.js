@@ -7,12 +7,13 @@ import project3Img from "../../assets/icons/projects/marvel-web-app.jpg";
 import project4Img from "../../assets/icons/projects/picture-project.jpg";
 import project5Img from "../../assets/icons/projects/food-project.jpg";
 import project6Img from "../../assets/icons/projects/rest-countries-api.jpg";
+import project7Img from "../../assets/icons/projects/filmix-project.jpg";
 
 const projects = [
     {
         title: "Irvas Project (Лендинг)",
         description:
-            "Адаптивный лендинг, сверстанный по макету из Figma. Реализована интерактивность с помощью JavaScript, включая различные модальные окна, формы обратной связи и слайдер. Стилизация выполнена с использованием CSS.",
+            "Адаптивный лендинг, сверстанный по макету из Figma. Реализована интерактивность с помощью JavaScript, включая различные модальные окна, формы обратной связи, слайдер, а также калькулятор для подбора окон. Стилизация выполнена с использованием CSS.",
         imageUrl: project1Img,
         tech: ["HTML", "CSS", "JavaScript"], // Список технологий
         liveUrl: "https://irvas-project.vercel.app/", // Ссылка на живой демо
@@ -30,7 +31,7 @@ const projects = [
     {
         title: "Marvel Project (Веб-приложение)",
         description:
-            "Приложение на React для исследования вселенной Marvel. Построено с использованием функциональных компонентов и хуков для работы с асинхронными запросами к API. Позволяет просматривать список персонажей Marvel и комиксов, и получать информацию о них.",
+            "Веб-приложение на React для исследования вселенной Marvel. Построено с использованием функциональных компонентов и хуков для работы с асинхронными запросами к API. Позволяет просматривать список персонажей Marvel и комиксов, и получать информацию о них.",
         imageUrl: project3Img,
         tech: ["React", "JS (Hooks)", "API Integration", "SASS"],
         liveUrl: "https://react-api-app-marvel.vercel.app/",
@@ -62,6 +63,15 @@ const projects = [
         tech: ["REACT", "JS (Hooks)", "API Integration", "Styled Components"],
         liveUrl: "https://rest-countries-api-ten-xi.vercel.app/",
         repoUrl: "https://github.com/blesswrld/REST-Countries-Api",
+    },
+    {
+        title: "Filmix (Веб-приложение)",
+        description:
+            "Веб-приложение для поиска и просмотра информации о фильмах и сериалах. Использует сторонний Kinopoisk API для получения актуальных данных, таких как списки популярных и лучших фильмов, постеры, описания и рейтинги. Позволяет пользователям удобно навигироваться по каталогу кино.",
+        imageUrl: project7Img,
+        tech: ["React", "JavaScript", "Kinopoisk API", "CSS/SASS"],
+        liveUrl: "https://filmix-react.vercel.app/",
+        repoUrl: "https://github.com/blesswrld/filmix-react",
     },
 ];
 

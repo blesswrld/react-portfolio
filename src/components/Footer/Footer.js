@@ -29,8 +29,14 @@ const Footer = () => {
                 </div> */}
                 <p>© {currentYear}. Все права защищены.</p>
                 <p>
-                    <a href="#privacy-policy">Политика конфиденциальности</a>
-                </p>{" "}
+                    <a
+                        href="/privacy-policy"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Политика конфиденциальности
+                    </a>
+                </p>
             </div>
         </footer>
     );

@@ -1,64 +1,87 @@
 import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Функция для закрытия меню при клике на ссылку (для мобильных)
-    const handleLinkClick = () => {
+    const isHomePage = location.pathname === "/";
+
+    const handleScrollLinkClick = (event, id) => {
         if (isOpen) {
             setIsOpen(false);
         }
+
+        if (isHomePage) {
+            event.preventDefault();
+            const element = document.getElementById(id);
+            if (element) {
+                const headerOffset =
+                    document.querySelector(".navbar-header")?.offsetHeight ||
+                    60;
+                const elementPosition =
+                    element.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth",
+                });
+            }
+        }
     };
 
+    // Список ссылок
+    const navLinks = [
+        { id: "hero", name: "Главная" },
+        { id: "about", name: "Обо мне" },
+        { id: "skills", name: "Навыки" },
+        { id: "services", name: "Услуги" },
+        { id: "portfolio", name: "Портфолио" },
+        { id: "contact", name: "Контакты" },
+    ];
+
     return (
-        <>
+        <header className="navbar-header">
             <button
                 className="menu-toggle"
                 onClick={toggleMenu}
                 aria-label="Открыть меню"
                 aria-expanded={isOpen}
             >
-                {/* можно использовать SVG или FontAwesome иконки */}
                 {isOpen ? "✕" : "☰"}
             </button>
             <nav className={`navbar-menu ${isOpen ? "open" : ""}`}>
                 <ul>
-                    <li>
-                        <a href="#hero" onClick={handleLinkClick}>
-                            Главная
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" onClick={handleLinkClick}>
-                            Обо мне
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills" onClick={handleLinkClick}>
-                            Навыки
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#services" onClick={handleLinkClick}>
-                            Услуги
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" onClick={handleLinkClick}>
-                            Портфолио
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" onClick={handleLinkClick}>
-                            Контакты
-                        </a>
-                    </li>
+                    {navLinks.map((link) => (
+                        <li key={link.id}>
+                            {isHomePage ? (
+                                <a
+                                    href={`#${link.id}`}
+                                    onClick={(e) =>
+                                        handleScrollLinkClick(e, link.id)
+                                    }
+                                >
+                                    {link.name}
+                                </a>
+                            ) : (
+                                <Link
+                                    to={`/#${link.id}`}
+                                    onClick={(e) =>
+                                        handleScrollLinkClick(e, link.id)
+                                    }
+                                >
+                                    {link.name}
+                                </Link>
+                            )}
+                        </li>
+                    ))}
                 </ul>
             </nav>
-        </>
+        </header>
     );
 };
 
