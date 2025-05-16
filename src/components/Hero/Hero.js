@@ -49,7 +49,8 @@ const Hero = () => {
                 <h2>Frontend Разработчик</h2>
                 <p className="subtitle">
                     17-летний разработчик из г.Грозного. Создаю быстрые,
-                    адаптивные и красивые веб-приложения с фокусом на React.
+                    адаптивные и красивые веб-приложения с фокусом на React и не
+                    только.
                 </p>
                 <div className="hero-buttons">
                     <a href="#portfolio" className="btn">

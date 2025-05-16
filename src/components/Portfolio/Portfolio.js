@@ -1,4 +1,3 @@
-import React from "react";
 import "./Portfolio.css";
 
 import project1Img from "../../assets/icons/projects/irvas-project.jpg";
@@ -8,6 +7,8 @@ import project4Img from "../../assets/icons/projects/picture-project.jpg";
 import project5Img from "../../assets/icons/projects/food-project.jpg";
 import project6Img from "../../assets/icons/projects/rest-countries-api.jpg";
 import project7Img from "../../assets/icons/projects/filmix-project.jpg";
+import project8Img from "../../assets/icons/projects/code-sync.png";
+import project9Img from "../../assets/icons/projects/pingme-messanger.jpg";
 
 const projects = [
     {
@@ -33,7 +34,13 @@ const projects = [
         description:
             "Веб-приложение на React для исследования вселенной Marvel. Построено с использованием функциональных компонентов и хуков для работы с асинхронными запросами к API. Позволяет просматривать список персонажей Marvel и комиксов, и получать информацию о них.",
         imageUrl: project3Img,
-        tech: ["React", "JS (Hooks)", "API Integration", "SASS"],
+        tech: [
+            "React",
+            "JS (Hooks)",
+            "API Integration",
+            "SASS",
+            "Create React App",
+        ],
         liveUrl: "https://react-api-app-marvel.vercel.app/",
         repoUrl: "https://github.com/blesswrld/react-api-app-marvel",
     },
@@ -60,7 +67,7 @@ const projects = [
         description:
             "Веб-приложение на React для исследования стран мира, использующее Rest Countries API. Построено с применением функциональных компонентов и хуков для асинхронной работы с данными. Позволяет переключать светлую/темную тему, просматривать список стран, фильтровать их по названию или региону, а также изучать подробную информацию о выбранной стране, включая её соседей.",
         imageUrl: project6Img,
-        tech: ["REACT", "JS (Hooks)", "API Integration", "Styled Components"],
+        tech: ["React", "JS (Hooks)", "API Integration", "Styled Components"],
         liveUrl: "https://rest-countries-api-ten-xi.vercel.app/",
         repoUrl: "https://github.com/blesswrld/REST-Countries-Api",
     },
@@ -69,9 +76,51 @@ const projects = [
         description:
             "Веб-приложение для поиска и просмотра информации о фильмах и сериалах. Использует сторонний Kinopoisk API для получения актуальных данных, таких как списки популярных и лучших фильмов, постеры, описания и рейтинги. Позволяет пользователям удобно навигироваться по каталогу кино.",
         imageUrl: project7Img,
-        tech: ["React", "JavaScript", "Kinopoisk API", "CSS/SASS"],
+        tech: [
+            "React",
+            "JavaScript",
+            "Kinopoisk API",
+            "MUI",
+            "Vite",
+            "CSS/SASS",
+        ],
         liveUrl: "https://filmix-react.vercel.app/",
         repoUrl: "https://github.com/blesswrld/filmix-react",
+    },
+    {
+        title: "CodeSync (Платформа для созвонов)",
+        description:
+            "Платформа для проведения видеоконференций и созвонов, разработанная с использованием Next.js. Реализована функциональность групповых звонков с помощью Stream.io. Для аутентификации пользователей интегрирован Clerk. Интерфейс построен с применением Shadcn UI и стилизован с помощью Tailwind CSS. В качестве базы данных используется Convex.",
+        imageUrl: project8Img,
+        tech: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Stream.io",
+            "Clerk",
+            "Convex",
+            "Tailwind CSS",
+            "Shadcn UI",
+        ],
+        liveUrl: "https://code-sync-react-platform.vercel.app/",
+        repoUrl: "https://github.com/blesswrld/CodeSync-react-platform",
+    },
+    {
+        title: "PingMe (Мессенджер)",
+        description:
+            "Веб-приложение мессенджер, разработанное на React с использованием Vite. Реализован обмен сообщениями в реальном времени с помощью Socket.io. Для хранения файлов и обмена фотографиями интегрировано облачное хранилище Yandex.Cloud. В качестве базы данных используется MongoDB. Интерфейс стилизован с помощью Tailwind CSS.",
+        imageUrl: project9Img,
+        tech: [
+            "React",
+            "JavaScript",
+            "Socket.io",
+            "MongoDB",
+            "Yandex.Cloud Storage",
+            "Tailwind CSS",
+            "Vite",
+        ],
+        isInDevelopment: "В разработке",
+        repoUrl: "https://github.com/blesswrld/PingMe-react-messanger",
     },
 ];
 
@@ -84,7 +133,7 @@ const Portfolio = () => {
                     Здесь собраны некоторые из моих проектов. Кликните, чтобы
                     увидеть подробности или демо.
                 </p>
-                {projects.length > 0 ? (
+                {projects && projects.length > 0 ? (
                     <div className="portfolio-grid">
                         {projects.map((project, index) => (
                             <div key={index} className="portfolio-card">
@@ -97,35 +146,52 @@ const Portfolio = () => {
                                     <h3>{project.title}</h3>
                                     <p>{project.description}</p>
                                     <div className="portfolio-tech">
-                                        {project.tech.map((t, i) => (
-                                            <span key={i} className="tech-tag">
-                                                {t}
-                                            </span>
-                                        ))}
+                                        {project.tech &&
+                                            project.tech.map((t, i) => (
+                                                <span
+                                                    key={i}
+                                                    className="tech-tag"
+                                                >
+                                                    {t}
+                                                </span>
+                                            ))}
                                     </div>
                                     <div className="portfolio-links">
-                                        {project.liveUrl &&
-                                            project.liveUrl !== "#" && (
-                                                <a
-                                                    href={project.liveUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="btn btn-small"
-                                                >
-                                                    Демо
-                                                </a>
-                                            )}
-                                        {project.repoUrl &&
-                                            project.repoUrl !== "#" && (
-                                                <a
-                                                    href={project.repoUrl}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="btn btn-secondary btn-small"
-                                                >
-                                                    Код
-                                                </a>
-                                            )}
+                                        {/* Условие: Если проект в разработке */}
+                                        {project.isInDevelopment ? (
+                                            <span className="development-status">
+                                                В разработке
+                                            </span>
+                                        ) : (
+                                            <>
+                                                {project.liveUrl &&
+                                                    project.liveUrl !== "#" && (
+                                                        <a
+                                                            href={
+                                                                project.liveUrl
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="btn btn-small"
+                                                        >
+                                                            Демо
+                                                        </a>
+                                                    )}
+                                                {project.repoUrl &&
+                                                    project.repoUrl !== "#" && (
+                                                        <a
+                                                            href={
+                                                                project.repoUrl
+                                                            }
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="btn btn-secondary btn-small"
+                                                        >
+                                                            Код
+                                                        </a>
+                                                    )}
+                                            </>
+                                        )}
                                     </div>
                                 </div>
                             </div>
