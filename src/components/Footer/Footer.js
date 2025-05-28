@@ -19,7 +19,7 @@ const Footer = () => {
                         <FaGithub />
                     </a>
                     <a
-                        href="https://t.me/gelgaev_dev"
+                        href="https://t.me/timammn"
                         target="_blank"
                         rel="noopener noreferrer"
                         title="Telegram"
