@@ -119,7 +119,7 @@ const projects = [
             "Tailwind CSS",
             "Vite",
         ],
-        isInDevelopment: "В разработке",
+        liveUrl: "https://pingme-react-messanger.onrender.com",
         repoUrl: "https://github.com/blesswrld/PingMe-react-messanger",
     },
 ];
