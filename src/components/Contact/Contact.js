@@ -103,11 +103,11 @@ const Contact = () => {
                         <p>
                             💬 Telegram:{" "}
                             <a
-                                href="https://t.me/timaamn"
+                                href="https://t.me/timammn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                @timaamn
+                                @timammn
                             </a>
                         </p>
                         <div className="social-icons contact-socials">
@@ -120,7 +120,7 @@ const Contact = () => {
                                 <FaGithub />
                             </a>
                             <a
-                                href="https://t.me/timaamn"
+                                href="https://t.me/timammn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title="Telegram"
