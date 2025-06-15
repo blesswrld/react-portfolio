@@ -1,91 +1,35 @@
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 .scroll-reveal {
     opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* --- Типы анимаций --- */
+
+.scroll-reveal.fade-in-up {
+    transform: translateY(40px);
 }
 
 .scroll-reveal.fade-in-down {
-    animation-name: fadeInDown;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
-}
-
-.scroll-reveal.fade-in-up {
-    animation-name: fadeInUp;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    transform: translateY(-40px);
 }
 
 .scroll-reveal.fade-in-left {
-    animation-name: fadeInLeft;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    transform: translateX(-40px);
 }
 
 .scroll-reveal.fade-in-right {
-    animation-name: fadeInRight;
-    animation-duration: 0.8s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+    transform: translateX(40px);
 }
 
 .scroll-reveal.fade-in {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-    animation-timing-function: ease-in;
-    animation-fill-mode: forwards;
+    transform: none;
+}
+
+.scroll-reveal.fade-in-up,
+.scroll-reveal.fade-in-down,
+.scroll-reveal.fade-in-left,
+.scroll-reveal.fade-in-right,
+.scroll-reveal.fade-in {
+    opacity: 1;
+    transform: none;
 }

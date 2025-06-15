@@ -1,61 +1,103 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./Navbar.css";
 
-const Navbar = () => {
+// Список ссылок
+const navLinks = [
+    { id: "hero", name: "Главная" },
+    { id: "about", name: "Обо мне" },
+    { id: "skills", name: "Навыки" },
+    { id: "services", name: "Услуги" },
+    { id: "portfolio", name: "Портфолио" },
+    { id: "contact", name: "Контакты" },
+];
+
+// Кастомный хук для управления состоянием меню
+const useMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    // useCallback, чтобы функции не создавались заново при каждом рендере
+    const openMenu = useCallback(() => setIsOpen(true), []);
+    const closeMenu = useCallback(() => setIsOpen(false), []);
+
+    // Эффект для закрытия меню по клавише Escape
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                closeMenu();
+            }
+        };
+
+        if (isOpen) {
+            document.addEventListener("keydown", handleKeyDown);
+            // Блокируем скролл основной страницы, когда меню открыто
+            document.body.style.overflow = "hidden";
+        }
+
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            document.body.style.overflow = "auto";
+        };
+    }, [isOpen, closeMenu]);
+
+    return { isOpen, openMenu, closeMenu };
+};
+
+const Navbar = () => {
+    const { isOpen, openMenu, closeMenu } = useMenu();
     const location = useLocation();
-
-    const toggleMenu = () => setIsOpen(!isOpen);
-
     const isHomePage = location.pathname === "/";
 
     const handleScrollLinkClick = (event, id) => {
-        if (isOpen) {
-            setIsOpen(false);
-        }
+        closeMenu();
 
         if (isHomePage) {
             event.preventDefault();
             const element = document.getElementById(id);
             if (element) {
-                const headerOffset =
-                    document.querySelector(".navbar-header")?.offsetHeight ||
-                    60;
-                const elementPosition =
-                    element.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset;
+                const elementTop =
+                    element.getBoundingClientRect().top + window.scrollY;
+                const offset = 70;
 
                 window.scrollTo({
-                    top: offsetPosition,
+                    top: elementTop - offset,
                     behavior: "smooth",
                 });
             }
         }
     };
 
-    // Список ссылок
-    const navLinks = [
-        { id: "hero", name: "Главная" },
-        { id: "about", name: "Обо мне" },
-        { id: "skills", name: "Навыки" },
-        { id: "services", name: "Услуги" },
-        { id: "portfolio", name: "Портфолио" },
-        { id: "contact", name: "Контакты" },
-    ];
-
     return (
-        <header className="navbar-header">
+        <nav className="navbar-container">
+            {/* Кнопка-бургер */}
             <button
-                className="menu-toggle"
-                onClick={toggleMenu}
+                className={`menu-toggle ${isOpen ? "hidden" : ""}`}
+                onClick={openMenu}
                 aria-label="Открыть меню"
-                aria-expanded={isOpen}
             >
-                {isOpen ? "✕" : "☰"}
+                ☰
             </button>
-            <nav className={`navbar-menu ${isOpen ? "open" : ""}`}>
-                <ul>
+
+            {/* Оверлей */}
+            <div
+                className={`overlay ${isOpen ? "active" : ""}`}
+                onClick={closeMenu}
+            />
+
+            {/* Выпадающее меню */}
+            <div
+                id="navbar-menu"
+                className={`navbar-menu ${isOpen ? "open" : ""}`}
+                aria-hidden={!isOpen}
+            >
+                <button
+                    className="menu-toggle-close"
+                    onClick={closeMenu}
+                    aria-label="Закрыть меню"
+                >
+                    ✕
+                </button>
+                <ul className="navbar-menu-list">
                     {navLinks.map((link) => (
                         <li key={link.id}>
                             {isHomePage ? (
@@ -68,20 +110,15 @@ const Navbar = () => {
                                     {link.name}
                                 </a>
                             ) : (
-                                <Link
-                                    to={`/#${link.id}`}
-                                    onClick={(e) =>
-                                        handleScrollLinkClick(e, link.id)
-                                    }
-                                >
+                                <Link to={`/#${link.id}`} onClick={closeMenu}>
                                     {link.name}
                                 </Link>
                             )}
                         </li>
                     ))}
                 </ul>
-            </nav>
-        </header>
+            </div>
+        </nav>
     );
 };
 

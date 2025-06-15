@@ -10,26 +10,43 @@ import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
+// import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
 import PrivacyPolicyPage from "./components/PrivacyPolicyPage/PrivacyPolicyPage";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom"; // Добавляем useLocation
+import { Link } from "react-router-dom"; // Добавляем Link
+import { FaArrowLeft } from "react-icons/fa"; // Добавляем иконку
+
+// Создаем отдельный компонент для кнопки "Назад"
+const BackButton = () => {
+    const location = useLocation();
+
+    // Показываем кнопку только если мы на странице /privacy-policy
+    if (location.pathname !== "/privacy-policy") {
+        return null;
+    }
+
+    return (
+        <Link to="/" className="back-to-home-btn">
+            <FaArrowLeft />
+            <span>Назад</span>
+        </Link>
+    );
+};
 
 function MainPage() {
     return (
         <>
             {/* <ThemeToggle /> */}
             <main>
-                <ScrollReveal>
-                    <Hero />
-                </ScrollReveal>
+                <Hero />
                 <ScrollReveal>
                     <About />
                 </ScrollReveal>
                 <ScrollReveal>
-                    <Skills />
+                    <Skills animationClass="fade-in-left" />
                 </ScrollReveal>
                 <ScrollReveal>
                     <Services />
@@ -49,6 +66,7 @@ function App() {
     return (
         <BrowserRouter>
             <Navbar />
+            <BackButton />
 
             <Routes>
                 <Route

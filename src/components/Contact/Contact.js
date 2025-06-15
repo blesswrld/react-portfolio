@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser"; // Импортировали библиотеку
 import "./Contact.css";
 import { FaGithub, FaTelegramPlane } from "react-icons/fa";
@@ -16,12 +16,21 @@ const TEMPLATE_ID = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
 
 const Contact = () => {
-    const form = useRef(); // Ссылка на DOM-элемент формы
-    const [isSending, setIsSending] = useState(false); // Флаг: идет ли отправка?
-    const [sendStatus, setSendStatus] = useState(""); // Статус отправки: 'success', 'error' или ''
-    const timer = setTimeout(() => {
-        setSendStatus(""); // Сбрасываем статус через 6 секунд
-    }, 6000); // 6000 миллисекунд = 6 секунд
+    const form = useRef();
+    const [isSending, setIsSending] = useState(false);
+    const [sendStatus, setSendStatus] = useState("");
+
+    // Улучшение: используем useEffect для сброса статуса.
+    // Это чище, чем создавать таймер при каждом рендере.
+    useEffect(() => {
+        if (sendStatus) {
+            const timer = setTimeout(() => {
+                setSendStatus("");
+            }, 5000); // 5 секунд
+
+            return () => clearTimeout(timer); // Очистка таймера при размонтировании
+        }
+    }, [sendStatus]); // Этот эффект запустится только когда sendStatus изменится
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -94,11 +103,11 @@ const Contact = () => {
                         <p>
                             💬 Telegram:{" "}
                             <a
-                                href="https://t.me/gelgaev_dev"
+                                href="https://t.me/timaamn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                @gelgaev_dev
+                                @timaamn
                             </a>
                         </p>
                         <div className="social-icons contact-socials">
@@ -111,7 +120,7 @@ const Contact = () => {
                                 <FaGithub />
                             </a>
                             <a
-                                href="https://t.me/gelgaev_dev"
+                                href="https://t.me/timaamn"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 title="Telegram"

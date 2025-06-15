@@ -1,5 +1,7 @@
 .services-section {
+    padding: var(--section-padding);
     background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .services-intro,
@@ -23,7 +25,10 @@
     background-color: #2a2a2a;
     padding: 1.5rem;
     border-radius: 8px;
-    border-left: 5px solid var(--primary-color);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -32,6 +37,24 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
+/*  АНИМАЦИЯ ВЕРХНЕЙ ПОЛОСКИ */
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.service-card:hover::before {
+    transform: translateX(0);
+}
+
+/* --- Содержимое карточки --- */
 .service-card h3 {
     margin-bottom: 0.8rem;
     color: var(--primary-color);
@@ -41,6 +64,7 @@
     margin-bottom: 1rem;
     font-size: 0.95rem;
     color: #e0e0e0;
+    flex-grow: 1;
 }
 
 .service-price {
@@ -57,12 +81,4 @@
 
 .services-note a {
     font-weight: bold;
-}
-
-[data-theme="light"] p {
-    color: var(--text-color);
-}
-
-[data-theme="light"] .service-card {
-    background-color: var(--background-color);
 }

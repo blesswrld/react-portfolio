@@ -21,9 +21,13 @@
 }
 
 .contact-info p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     font-size: 1.1rem;
     line-height: 1.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
 }
 
 .contact-info p a {
@@ -32,14 +36,18 @@
 }
 .contact-info p a:hover {
     color: var(--primary-color);
+    transition: all 0.3s;
 }
 
 .contact-socials {
     margin-top: 2rem;
     justify-content: flex-start;
 }
-.contact-socials a {
-    font-size: 2rem;
+
+.contact-socials a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    transition: all 0.3s;
 }
 
 /* Стили для формы */
@@ -63,14 +71,8 @@
     color: var(--text-color);
     border-radius: 5px;
     font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
-/* [data-theme="light"].contact-form input[type="text"],
-.contact-form input[type="email"],
-.contact-form textarea {
-    color: var(--text-color);
-    background-color: var(--background-color);
-} */
 
 .contact-form input[type="text"]:focus,
 .contact-form input[type="email"]:focus,

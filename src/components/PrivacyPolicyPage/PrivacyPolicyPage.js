@@ -2,7 +2,7 @@ import React from "react";
 import "./PrivacyPolicyPage.css";
 
 export default function PrivacyPolicyPage() {
-    const websiteUrl = "https://react-portfolio-sepia-seven.vercel.app";
+    const websiteUrl = "https://portfolio-gelgt.vercel.app";
     const operatorEmail = "gelgaev.dev@mail.ru";
 
     return (
