@@ -1,0 +1,117 @@
+.privacy-policy-wrapper {
+    position: relative;
+    padding: 1px 0;
+}
+
+/* --- Кнопка "Назад" --- */
+.back-to-home-btn {
+    position: fixed;
+    z-index: 999;
+    left: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: var(--text-secondary-color);
+    background-color: rgba(36, 36, 36, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.back-to-home-btn:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: rgba(97, 218, 251, 0.1);
+    text-decoration: none;
+}
+
+.privacy-policy-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2.5rem;
+    line-height: 1.7;
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+}
+
+.privacy-policy-container h2,
+.privacy-policy-container h3 {
+    margin-top: 2em;
+    color: var(--primary-color);
+}
+
+.privacy-policy-container h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.privacy-policy-container h3 {
+    font-size: 1.3rem;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.3em;
+}
+
+.privacy-policy-container p {
+    margin-bottom: 1em;
+    color: var(--text-secondary-color);
+}
+
+.privacy-policy-container strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.privacy-policy-container ul {
+    list-style: disc;
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary-color);
+}
+
+.privacy-policy-container li {
+    margin-bottom: 0.5rem;
+}
+
+.privacy-policy-container a {
+    text-decoration: none;
+    word-break: break-all;
+    color: var(--primary-color);
+}
+
+.privacy-policy-container a:hover {
+    color: var(--text-color);
+    transition: all 0.3s;
+}
+
+/* --- Адаптивность --- */
+@media screen and (max-width: 1024px) {
+    /* На планшетах и мобильных прячем кнопку */
+    .back-to-home-btn {
+        display: none;
+    }
+    .privacy-policy-container {
+        /* Возвращаем стандартный отступ, раз кнопки нет */
+        margin-top: calc(70px + 2rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .privacy-policy-container {
+        padding: 1.5rem;
+    }
+    .privacy-policy-container h2 {
+        font-size: 1.6rem;
+    }
+    .privacy-policy-container h3 {
+        font-size: 1.2rem;
+    }
+}

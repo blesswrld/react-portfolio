@@ -1,0 +1,48 @@
+.about-section {
+    padding: 100px;
+    background-color: var(--secondary-color);
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-text {
+    width: 100%;
+}
+
+.about-text h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.about-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Адаптивность --- */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .about-text p {
+        text-align: center;
+    }
+
+    /* .about-photo {
+        margin-bottom: 1.5rem;
+        max-width: 200px;
+    } */
+}

@@ -1,0 +1,105 @@
+.contact-section {
+    background-color: var(--secondary-color);
+}
+
+.contact-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ccc;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.contact-info p a {
+    color: var(--text-color);
+    word-break: break-all;
+}
+.contact-info p a:hover {
+    color: var(--primary-color);
+    transition: all 0.3s;
+}
+
+.contact-socials {
+    margin-top: 2rem;
+    justify-content: flex-start;
+}
+
+.contact-socials a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    transition: all 0.3s;
+}
+
+/* Стили для формы */
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #555;
+    background-color: #333;
+    color: var(--text-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(97, 218, 251, 0.5);
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+}
+
+@media (max-width: 992px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    .contact-info {
+        text-align: center;
+    }
+    .contact-socials {
+        justify-content: center;
+    }
+}

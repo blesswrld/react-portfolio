@@ -1,0 +1,35 @@
+.scroll-reveal {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* --- Типы анимаций --- */
+
+.scroll-reveal.fade-in-up {
+    transform: translateY(40px);
+}
+
+.scroll-reveal.fade-in-down {
+    transform: translateY(-40px);
+}
+
+.scroll-reveal.fade-in-left {
+    transform: translateX(-40px);
+}
+
+.scroll-reveal.fade-in-right {
+    transform: translateX(40px);
+}
+
+.scroll-reveal.fade-in {
+    transform: none;
+}
+
+.scroll-reveal.fade-in-up,
+.scroll-reveal.fade-in-down,
+.scroll-reveal.fade-in-left,
+.scroll-reveal.fade-in-right,
+.scroll-reveal.fade-in {
+    opacity: 1;
+    transform: none;
+}
