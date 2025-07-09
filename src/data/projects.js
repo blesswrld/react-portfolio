@@ -103,7 +103,7 @@ export const projectsData = [
             "Tailwind CSS",
             "Shadcn UI",
         ],
-        liveUrl: "https://code-sync-react-platform.vercel.app",
+        liveUrl: "https://codesync-react-platform.vercel.app",
         repoUrl: "https://github.com/blesswrld/CodeSync-react-platform",
     },
     {
