@@ -19,20 +19,6 @@
     --button-hover-bg: #4aabbd;
 }
 
-/* Светлая тема (в стиле React Docs) стили пока не используются */
-/* [data-theme="light"] {
-    --primary-color: #087ea4;
-    --secondary-color: #ffffff;
-    --background-color: #f8f9fa;
-    --text-color: #282c34;
-    --text-secondary-color: #6c757d;
-    --border-color: #dee2e6;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --link-hover-color: #065f7e;
-    --button-text-color: #ffffff;
-    --button-hover-bg: #065f7e;
-} */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -85,6 +71,7 @@ section:last-of-type {
 .btn {
     display: inline-block;
     background: var(--primary-color);
+    font-family: "Montserrat", sans-serif;
     color: var(--secondary-color);
     padding: 0.8rem 1.5rem;
     border: none;
@@ -96,24 +83,7 @@ section:last-of-type {
 }
 
 .btn:hover {
-    background: #4aabbd;
     text-decoration: none;
-}
-
-.social-icons {
-    display: flex;
-    gap: 15px;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    color: var(--text-color);
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-    color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

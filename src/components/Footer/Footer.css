@@ -1,6 +1,6 @@
 .footer-section {
     background-color: #111;
-    color: #aaa;
+    color: var(--text-secondary-color);
     padding: 2rem 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
@@ -37,11 +37,12 @@
     font-size: 0.9rem;
 }
 
-.footer-content a.footer-link {
+.footer-content a {
     text-decoration: none;
+    transition: all 0.3s;
 }
 
-.container,
 .footer-content a:hover {
-    text-decoration: none;
+    text-decoration: underline;
+    opacity: 0.9;
 }

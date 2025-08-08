@@ -40,8 +40,16 @@
 }
 
 .contact-socials {
-    margin-top: 2rem;
+    display: flex;
+    gap: 15px;
+    margin-top: 1rem;
     justify-content: flex-start;
+}
+
+.contact-socials a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
 }
 
 .contact-socials a:hover {
@@ -67,7 +75,7 @@
     width: 100%;
     padding: 0.8rem;
     border: 1px solid #555;
-    background-color: #333;
+    background-color: var(--border-color);
     color: var(--text-color);
     border-radius: 5px;
     font-size: 1rem;

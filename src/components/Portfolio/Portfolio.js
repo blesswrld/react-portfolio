@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { projectsData } from "../../data/projects.js"; // <-- Импортируем данные
 import "./Portfolio.css";
 
 const Portfolio = () => {
+    const [visibleCount, setVisibleCount] = useState(8);
+
+    const PROJECTS_TO_LOAD = 4;
+
+    // Функция, которая будет вызываться при клике на кнопку "Показать еще"
+    const handleShowMore = () => {
+        // Увеличиваем количество видимых проектов на 4
+        setVisibleCount((prevCount) => prevCount + PROJECTS_TO_LOAD);
+    };
+
     return (
         <section id="portfolio" className="portfolio-section">
             <div className="container">
@@ -11,11 +21,10 @@ const Portfolio = () => {
                     Здесь собраны некоторые из моих проектов...
                 </p>
                 <div className="portfolio-grid">
-                    {projectsData.map(
-                        (
-                            project,
-                            index // <-- Используем импортированные данные
-                        ) => (
+                    {/*  Отображаем только часть проектов, используя .slice() */}
+                    {projectsData
+                        .slice(0, visibleCount)
+                        .map((project, index) => (
                             <div key={index} className="portfolio-card">
                                 <img
                                     src={project.imageUrl}
@@ -75,9 +84,18 @@ const Portfolio = () => {
                                     </div>
                                 </div>
                             </div>
-                        )
-                    )}
+                        ))}
                 </div>
+
+                {/* Условие для отображения кнопки:
+                    Показываем кнопку только если видимых проектов меньше, чем их общее количество */}
+                {visibleCount < projectsData.length && (
+                    <div className="show-more-container">
+                        <button onClick={handleShowMore} className="btn">
+                            Показать еще
+                        </button>
+                    </div>
+                )}
             </div>
         </section>
     );

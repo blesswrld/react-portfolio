@@ -1,9 +1,6 @@
 import React from "react";
 import "./Footer.css";
 
-// Раскомментируем иконки, чтобы использовать их
-// import { FaGithub, FaTelegramPlane } from "react-icons/fa";
-
 const Footer = () => {
     const currentYear = new Date().getFullYear();
 
