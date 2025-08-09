@@ -1,4 +1,3 @@
-// Импорты всех изображений для проектов
 import irvasProjectImg from "../assets/images/projects/irvas-project.jpg";
 import loanProjectImg from "../assets/images/projects/loan-project.jpg";
 import pictureProjectImg from "../assets/images/projects/picture-project.jpg";
