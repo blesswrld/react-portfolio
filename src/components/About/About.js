@@ -1,18 +1,11 @@
 import React from "react";
 import "./About.css";
 
-// import myPhoto from '../../assets/';
-
 const About = () => {
     return (
         <section id="about" className="about-section">
             <div className="container">
                 <div className="about-content">
-                    {/* <img
-                        // src=""
-                        alt="Тамерлан Гельгаев"
-                        className="about-photo"
-                    /> */}
                     <div className="about-text">
                         <h2>Немного обо мне</h2>
                         <p>
