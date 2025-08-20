@@ -5,8 +5,8 @@
     --navbar-height: 60px;
 }
 
-/* Стили для темной темы */
-[data-theme="dark"] {
+/* Стили для дефолтной темы */
+[data-theme="default"] {
     --primary-color: #61dafb;
     --secondary-color: #282c34;
     --background-color: #1e1e1e;

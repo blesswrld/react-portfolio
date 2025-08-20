@@ -10,7 +10,6 @@ import Portfolio from "./components/Portfolio/Portfolio";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 
-// import ThemeToggle from "./components/ThemeToggle/ThemeToggle";
 import ScrollReveal from "./components/ScrollReveal/ScrollReveal";
 
 import PrivacyPolicyPage from "./components/PrivacyPolicyPage/PrivacyPolicyPage";
@@ -39,7 +38,6 @@ const BackButton = () => {
 function MainPage() {
     return (
         <>
-            {/* <ThemeToggle /> */}
             <main>
                 <Hero />
                 <ScrollReveal>
